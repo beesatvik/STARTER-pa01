@@ -1,10 +1,14 @@
 // This file should implement the game using a custom implementation of a BST (based on your earlier BST implementation)
+//Satvik Balakrishnan
+
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include "card.h"
 #include "card_list.h"
 //Do not include set in this file
+
 
 using namespace std;
 

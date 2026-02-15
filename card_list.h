@@ -25,6 +25,7 @@ private:
     Node* maxNode(Node* node) const;
     Node* successor(Node* node) const;
     Node* predecessor(Node* node) const;
+ 
 
 public:
     CardList();
@@ -34,15 +35,23 @@ public:
     bool contains(const Card& card) const;
     bool erase(const Card& card);
 
+    void print() const;
+
+
     class Iterator {
     private:
         Node* current;
         const CardList* list;
-        Iterator(Node* node, const CardList* list) : current(node), list(list) { }
+        bool reverse; 
+        Iterator(Node* node, const CardList* list, bool reverse = false) : current(node), list(list), reverse(reverse) { }
+
         friend class CardList;
 
+        
+
     public:
-        Iterator() : current(nullptr), list(nullptr) {}
+        Iterator() : current(nullptr), list(nullptr), reverse(false) {}
+        
 
         const Card& operator*() const;
         const Card* operator->() const;

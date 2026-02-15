@@ -18,7 +18,7 @@ private:
     int value;
 
     vector<string> suits = {"c", "d", "s", "h"};
-    vector<string> values = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+    vector<string> values = {"a", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k"};
 
 
     

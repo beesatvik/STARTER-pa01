@@ -164,7 +164,12 @@ const Card* CardList::Iterator::operator->() const{
 CardList::Iterator& CardList::Iterator::operator++(){
     if(list == nullptr) return *this;
     if(current == nullptr) return *this;
-    current = list->successor(current);
+    
+    if(reverse) {
+        current = list->predecessor(current);
+    } else {
+        current = list->successor(current);
+    }
     return *this;
 }
 
@@ -172,11 +177,19 @@ CardList::Iterator& CardList::Iterator::operator--(){
     if (list == nullptr) return *this;
 
     if (current == nullptr) {
-        current = list->maxNode(list->root);
+        if(reverse) {
+            return *this;
+        } else {
+            current = list->maxNode(list->root);
+        }
         return *this;
     }
 
-    current = list->predecessor(current);
+    if(reverse) {
+        current = list->successor(current);
+    } else {
+        current = list->predecessor(current);
+    }
     return *this;
 }
 
@@ -199,9 +212,16 @@ CardList::Iterator CardList::end() const{
 
 CardList::Iterator CardList::rbegin() const{
     if(!root) return rend();
-    return Iterator(maxNode(root), this);
+    return Iterator(maxNode(root), this, true);  // ADD true as third parameter
 }
 
 CardList::Iterator CardList::rend() const{
-    return Iterator(nullptr, this);
+    return Iterator(nullptr, this, true);  // ADD true as third parameter
 }
+
+void CardList::print() const{
+    for(auto it = begin(); it != end(); ++it){
+        cout << *it << "\n";
+    }
+}
+

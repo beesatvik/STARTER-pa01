@@ -99,7 +99,7 @@ bool Card::operator<=(const Card& other) const{
 }
 
 ostream& operator<<(ostream& os, const Card& card){
-    os << card.getSuit() << card.getValue();
+    os << card.getSuit() << " " << card.getValue();
     return os;
 }
 
