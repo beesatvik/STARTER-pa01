@@ -34,7 +34,7 @@ void playGame(CardList& aliceDeck, CardList& bobDeck){
       }
 
       else{
-        for(auto bobCard = bobDeck.rbegin(); bobCard != bobDeck.rend(); --bobCard){
+        for(auto bobCard = bobDeck.rbegin(); bobCard != bobDeck.rend(); ++bobCard){
           if(aliceDeck.contains(*bobCard)){
 
             cout<<"Bob picked matching card "<<*bobCard<<endl;
